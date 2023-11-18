@@ -11,7 +11,7 @@ export default function RootLayout({
     <html lang="fr">
       <body>
         <StyledComponentsRegistry>
-          <Theme>
+          <Theme accentColor={"amber"}>
             {children}
           </Theme>
         </StyledComponentsRegistry>
