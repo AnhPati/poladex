@@ -1,0 +1,84 @@
+.NavTrigger {
+    border: none;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.NavButton {
+    background: var(--amber-a10) !important;
+}
+
+.NavButton:hover {
+    background: var(--amber-a9) !important;
+}
+
+/*Icon Menu Animation :*/
+.first-bar,
+.second-bar,
+.third-bar {
+    transition: all 0.35s linear;
+    transform: rotate(0deg);
+    transform-origin: 0% 50%;
+}
+
+.NavTrigger[data-state="open"] .first-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 50%;
+    width: 20px;
+}
+
+.NavTrigger[data-state="open"] .third-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 50%;
+    width: 20px;
+}
+
+.NavTrigger[data-state="open"] .second-bar {
+    width: 0;
+    opacity: 0;
+}
+
+/*Icon Menu Animation End*/
+
+.NavigationMenuContent {
+    position: fixed;
+    width: 100%;
+    top: 60px;
+}
+
+.NavigationMenuList {
+    background: var(--amber-a10);
+    color: var(--amber-a12);
+    text-align: center;
+}
+
+.NavigationMenuItem {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: rgba(0, 0, 0, 0.1) solid 1px;
+}
+
+.NavigationMenuList:last-child {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
+}
+
+.NavigationMenuItem::marker {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--amber-a12);
+}
+
+a:hover {
+    color: var(--amber-a11);
+}

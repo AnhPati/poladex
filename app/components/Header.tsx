@@ -2,7 +2,7 @@
 
 import { Box, Flex, Heading } from "@radix-ui/themes"
 import styled from "styled-components"
-import { Navigation } from "./Navigation"
+import { Navigation } from "./navigation/Navigation"
 import Image from "next/image"
 
 const HeaderContainer = styled.header`
@@ -23,13 +23,18 @@ const HeaderContainer = styled.header`
 export const Header = () => {
     return (
         <HeaderContainer>
-            <Flex align={'center'} justify={'between'}>
+            <Flex
+                align={'center'}
+                justify={'between'}
+                pl={'4'}
+                pr={'4'}
+            >
                 <Box>
                     <Navigation />
                 </Box>
                 <Box>
                     <Heading as={'h2'}>
-                        Poladex
+                        POLADEX
                     </Heading>
                 </Box>
                 <Box>

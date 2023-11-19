@@ -1,3 +1,4 @@
+import './styles.css'
 import '@radix-ui/themes/styles.css'
 import StyledComponentsRegistry from "./lib/registry"
 import { Theme } from "@radix-ui/themes"
