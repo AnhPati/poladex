@@ -1,11 +1,14 @@
-import { HamburgerMenuIcon } from "@radix-ui/react-icons"
+'use client'
+
 import * as NavigationMenu from "@radix-ui/react-navigation-menu"
 import { Button, Heading } from "@radix-ui/themes"
-import Image from "next/image"
 import Link from "next/link"
 import './navigation.css'
+import { usePathname } from "next/navigation"
 
 export const Navigation = () => {
+    const pathname = usePathname()
+
     return (
         <NavigationMenu.Root orientation={'vertical'}>
             <NavigationMenu.List>
@@ -33,24 +36,24 @@ export const Navigation = () => {
                         <NavigationMenu.List className={'NavigationMenuList'}>
                             <NavigationMenu.Item className={'NavigationMenuItem'}>
                                 <NavigationMenu.Link>
-                                    <Link href='/authentification'>
+                                    <Link href={pathname === '/authentification' ? '/' : '/authentification'}>
                                         <Heading
                                             as={'h2'}
                                             weight={'medium'}
                                         >
-                                            AUTHENTIFICATION
+                                            {pathname === '/authentification' ? 'HOME' : 'AUTHENTIFICATION'}
                                         </Heading>
                                     </Link>
                                 </NavigationMenu.Link>
                             </NavigationMenu.Item>
                             <NavigationMenu.Item className={'NavigationMenuItem'}>
                                 <NavigationMenu.Link>
-                                    <Link href='/poladex'>
+                                    <Link href={pathname === '/poladex' ? '/' : '/poladex'}>
                                         <Heading
                                             as={'h2'}
                                             weight={'medium'}
                                         >
-                                            POLADEX
+                                            {pathname === '/poladex' ? 'HOME' : 'POLADEX'}
                                         </Heading>
                                     </Link>
                                 </NavigationMenu.Link>
