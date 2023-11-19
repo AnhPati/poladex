@@ -15,7 +15,7 @@ export const Navigation = () => {
                         onPointerLeave={(event) => event.preventDefault()}
                         className={'NavTrigger'}
                     >
-                        <Button className={'NavButton'}>
+                        <Button className={'NavButton'} mr={'2'} ml={'2'}>
                             {/*Burger Menu Icon :*/}
                             <svg width="30" height="19" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect className={'first-bar'} width="30" height="5" rx="2.5" fill="#582D1D" />
@@ -34,7 +34,10 @@ export const Navigation = () => {
                             <NavigationMenu.Item className={'NavigationMenuItem'}>
                                 <NavigationMenu.Link>
                                     <Link href='/authentification'>
-                                        <Heading as={'h2'}>
+                                        <Heading
+                                            as={'h2'}
+                                            weight={'medium'}
+                                        >
                                             AUTHENTIFICATION
                                         </Heading>
                                     </Link>
@@ -43,7 +46,10 @@ export const Navigation = () => {
                             <NavigationMenu.Item className={'NavigationMenuItem'}>
                                 <NavigationMenu.Link>
                                     <Link href='/poladex'>
-                                        <Heading as={'h2'}>
+                                        <Heading
+                                            as={'h2'}
+                                            weight={'medium'}
+                                        >
                                             POLADEX
                                         </Heading>
                                     </Link>

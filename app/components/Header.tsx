@@ -26,18 +26,22 @@ export const Header = () => {
             <Flex
                 align={'center'}
                 justify={'between'}
-                pl={'4'}
-                pr={'4'}
             >
                 <Box>
                     <Navigation />
                 </Box>
                 <Box>
-                    <Heading as={'h2'}>
+                    <Heading
+                        as={'h1'}
+                        weight={'bold'}
+                    >
                         POLADEX
                     </Heading>
                 </Box>
-                <Box>
+                <Box
+                    pl={'4'}
+                    pr={'4'}
+                >
                     <Image src={'/beers/poladex-logo.svg'} alt={'Poladex logo'} width={40} height={40} />
                 </Box>
             </Flex>
