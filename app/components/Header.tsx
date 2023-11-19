@@ -42,7 +42,7 @@ export const Header = () => {
                     pl={'4'}
                     pr={'4'}
                 >
-                    <Image src={'/beers/poladex-logo.svg'} alt={'Poladex logo'} width={40} height={40} />
+                    <Image src={'/poladex-logo.svg'} alt={'Poladex logo'} width={40} height={40} />
                 </Box>
             </Flex>
         </HeaderContainer>
