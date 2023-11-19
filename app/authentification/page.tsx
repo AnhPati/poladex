@@ -1,8 +1,21 @@
-import React from 'react'
+'use client'
+
+import { Button } from '@radix-ui/themes'
+import { GoogleIcon } from './GoogleIcon'
+import { signIn } from 'next-auth/react'
 
 const Authentification = () => {
     return (
-        <div>Authentification</div>
+        <div>
+            <h2>
+                Authentification
+            </h2>
+            <Button onClick={() => {
+                signIn()
+            }}>
+                <GoogleIcon /> Connexion
+            </Button>
+        </div>
     )
 }
 
