@@ -1,20 +1,16 @@
-'use client'
+import { Button, DropdownMenu, Heading } from '@radix-ui/themes'
+import { getAuthSession } from '../lib/auth-options'
+import { LoginButton } from './LoginButton'
+import { UserProfile } from './UserProfile'
 
-import { Button } from '@radix-ui/themes'
-import { GoogleIcon } from './GoogleIcon'
-import { signIn } from 'next-auth/react'
-
-const Authentification = () => {
+const Authentification = async () => {
+    const session = await getAuthSession()
     return (
         <div>
-            <h2>
+            <Heading>
                 Authentification
-            </h2>
-            <Button onClick={() => {
-                signIn()
-            }}>
-                <GoogleIcon /> Connexion
-            </Button>
+            </Heading>
+            {session?.user ? <UserProfile userName={session.user.name} /> : <LoginButton />}
         </div>
     )
 }
