@@ -2,3 +2,19 @@ body {
     margin: 0;
     background: var(--amber-a2);
 }
+
+header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: var(--amber-a10);
+    color: var(--amber-a12);
+}
+
+header>div {
+    height: 100%;
+}
+
+header svg {
+    color: var(--amber-a12);
+}

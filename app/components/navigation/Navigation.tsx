@@ -36,18 +36,6 @@ export const Navigation = () => {
                         <NavigationMenu.List className={'NavigationMenuList'}>
                             <NavigationMenu.Item className={'NavigationMenuItem'}>
                                 <NavigationMenu.Link>
-                                    <Link href={pathname === '/authentification' ? '/' : '/authentification'}>
-                                        <Heading
-                                            as={'h2'}
-                                            weight={'medium'}
-                                        >
-                                            {pathname === '/authentification' ? 'HOME' : 'AUTHENTIFICATION'}
-                                        </Heading>
-                                    </Link>
-                                </NavigationMenu.Link>
-                            </NavigationMenu.Item>
-                            <NavigationMenu.Item className={'NavigationMenuItem'}>
-                                <NavigationMenu.Link>
                                     <Link href={pathname === '/poladex' ? '/' : '/poladex'}>
                                         <Heading
                                             as={'h2'}
