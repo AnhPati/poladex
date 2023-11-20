@@ -1,4 +1,4 @@
-import { Home } from "./components/Home"
+import { Home } from "@/app/Home"
 import { getAuthSession } from "./lib/auth-options"
 
 export default async function App() {

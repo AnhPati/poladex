@@ -31,6 +31,9 @@
       ],
       "@/lib/*": [
         "./app/lib/*"
+      ],
+      "@/APIservices/*": [
+        "./app/APIservices/*"
       ]
     }
   },

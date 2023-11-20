@@ -1,25 +1,21 @@
+'use client'
+
 import styled from "styled-components"
-import { CountButton } from "../utils/CountButton"
-import { AddCartButton } from "../utils/AddCartButton"
+import { Card, Heading } from "@radix-ui/themes"
 
 const CardContainer = styled.li`
-    width: 300px;
-    height: auto;
     list-style: none;
-    margin: 0.4em;
-    padding: 0.8em;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-    border: 1px lightgray solid;
-    border-radius: 5px;
-    box-shadow: 1px 1px lightgray;
+    > div {
+        box-shadow: 1px 1px lightgray;
+    }
 `
-const CardTitle = styled.h4`
-    font-size: 1.2em;
-    font-weight: 700;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+const CardTitle = styled.div`
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 `
 
 const ImageContainer = styled.div`
@@ -49,19 +45,35 @@ const CardButtonsContainer = styled.div`
     flex-direction: column;
 `
 
-export const Card = ({ id, name, image, description }) => {
+export const CardBeer = ({ id, name, image, description }: { id: number, name: string, image: string, description: string }) => {
     const srcImg = image === "" ? '/beers/poladex-logo.png' : image
 
     return (
-        <CardContainer id={id}>
-            <CardTitle>{name}</CardTitle>
-            <ImageContainer>
-                <CardImage src={srcImg} alt={name} />
-            </ImageContainer>
-            <CardDescription>{description}</CardDescription>
-            <CardButtonsContainer>
-                <button>Bouton</button>
-            </CardButtonsContainer>
+        <CardContainer id={`${id}`}>
+            <Card
+                size={'2'}
+                style={{ maxWidth: 350 }}
+                variant={'surface'}
+            >
+                <CardTitle>
+                    <Heading
+                        as={'h4'}
+                        weight={'medium'}
+                        mt={'4'}
+                        mb={'5'}
+                    >
+                        {name}
+                    </Heading>
+                </CardTitle>
+                <ImageContainer>
+                    <CardImage src={srcImg} alt={name} />
+                </ImageContainer>
+
+                <CardButtonsContainer>
+                    <button>Bouton</button>
+                </CardButtonsContainer>
+            </Card>
         </CardContainer>
     )
 }
+//<CardDescription>{description}</CardDescription>

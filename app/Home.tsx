@@ -4,7 +4,7 @@ import { Button, Flex, Heading, Text } from '@radix-ui/themes'
 import Image from 'next/image'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { LoginButton } from './authentification/LoginButton'
+import { LoginButton } from './components/authentification/LoginButton'
 
 const HeadingContainer = styled.div`
   width: 180px;

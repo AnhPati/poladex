@@ -3,6 +3,7 @@ import '@radix-ui/themes/styles.css'
 import StyledComponentsRegistry from "./lib/registry"
 import { Theme } from "@radix-ui/themes"
 import { Header } from '@/components/Header'
+import { DataProvider } from './components/DataProvider'
 
 export default function RootLayout({
   children,
@@ -12,14 +13,16 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
-        <StyledComponentsRegistry>
-          <Theme accentColor={"amber"}>
-            <Header />
-            <main>
-              {children}
-            </main>
-          </Theme>
-        </StyledComponentsRegistry>
+        <DataProvider>
+          <StyledComponentsRegistry>
+            <Theme accentColor={"amber"}>
+              <Header />
+              <main>
+                {children}
+              </main>
+            </Theme>
+          </StyledComponentsRegistry>
+        </DataProvider>
       </body>
     </html>
   )

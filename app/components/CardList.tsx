@@ -1,24 +1,34 @@
+'use client'
+
 import styled from "styled-components"
-import { Card } from "./Card"
+import { CardBeer } from "./Card"
+import { useQuery } from "@tanstack/react-query"
+import { fetchBeers } from "../APIservices/fetchBeers"
+import { Grid } from "@radix-ui/themes"
 
 const CardsContainer = styled.ul`
+    padding: 20px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 `
 
-const CardList = ({ beers, isLoading, isError, error }) => {
+const CardList = ({ userId }: { userId: number }) => {
+    const queryKey = ['beers']
+    const { data, isLoading, isError, error } = useQuery({
+        queryKey: queryKey,
+        queryFn: fetchBeers,
+        refetchOnWindowFocus: false
+    })
 
     return (
-        <div>
+        <CardsContainer>
             {isLoading && `En cours de chargement...`}
             {isError && ` Une erreur est survenue : ${error}`}
 
-            <CardsContainer>
-                <img src="" alt="" />
-                {beers && beers.map(beer =>
+            <Grid columns={'2'} gap={'4'}>
+                {data && data.map((beer: { id: number, name: string; descript: string, img: string }) =>
                     beer.id < 20 &&
-                    <Card
+                    <CardBeer
                         key={beer.id}
                         id={beer.id}
                         name={beer.name}
@@ -26,9 +36,10 @@ const CardList = ({ beers, isLoading, isError, error }) => {
                         image={beer.img}
                     />
                 )}
-            </CardsContainer>
-        </div>
+            </Grid>
+        </CardsContainer>
     )
 }
 
 export default CardList
+
