@@ -29,8 +29,8 @@
       "@/components/*": [
         "./app/components/*"
       ],
-      "@/fonts/*": [
-        "./app/fonts/*"
+      "@/lib/*": [
+        "./app/lib/*"
       ]
     }
   },
