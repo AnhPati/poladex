@@ -1,25 +1,35 @@
 'use client'
 
 import styled from "styled-components"
-import { Card, Heading } from "@radix-ui/themes"
+import { Box, Button, Card, Flex, Heading, Link, Text } from "@radix-ui/themes"
+import Image from 'next/image'
+import { BeerCaract } from "./BeerCaract"
 
 const CardContainer = styled.li`
-    list-style: none;
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
     > div {
-        box-shadow: 1px 1px lightgray;
+        background: var(--amber-a3);
+        border-color:var(--amber-a6)!important; 
+    }
+
+    > div::after {
+        box-shadow: none;
     }
 `
 const CardTitle = styled.div`
+        max-width: 100%;
         text-align: center;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        h4 {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+    }
 `
 
 const ImageContainer = styled.div`
-    max-width: 100%;
+    overflow: hidden;
+    background: #FFF;
+    width: 200px;
+    border-radius: 50%;
     height: 200px;
     position: relative;
 `
@@ -40,60 +50,58 @@ const CardDescription = styled.p`
     -webkit-box-orient: vertical;
 `
 
-const CardButtonsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-`
-
-interface Description {
-    ibu: string
-    degree: string
-    type: string
-    ingredients: []
-    brewery: string
-    country: string
-    text: string
+interface Beer {
+    id: string
+    name: string
+    img: string
+    description: {
+        ibu: string
+        degree: string
+        type: string
+        ingredients: []
+        brewery: string
+        country: string
+        text: string
+    }
 }
 
-export const CardBeer = ({ id, name, image, description }: { id: number, name: string, image: string, description: Description }) => {
+export const CardBeer = ({ id, name, image, description }: { id: string, name: string, image: string, description: Beer['description'] }) => {
     const srcImg = image === "" ? '/beers/poladex-logo.png' : image
 
     return (
-        <CardContainer id={`${id}`}>
+        <CardContainer id={id}>
             <Card
                 size={'2'}
                 style={{ maxWidth: 350 }}
                 variant={'surface'}
             >
-                <CardTitle>
-                    <Heading
-                        as={'h4'}
-                        weight={'medium'}
-                        mt={'4'}
-                        mb={'5'}
-                    >
-                        {name}
-                    </Heading>
-                </CardTitle>
-                <ImageContainer>
-                    <CardImage src={srcImg} alt={name} />
-                </ImageContainer>
-                <div>
-                    <div>
-                        {description.ibu} IBU
-                    </div>
-                    <div>
-                        {description.degree} °
-                    </div>
-                    <div>
-                        {description.type}
-                    </div>
-                </div>
-                <CardButtonsContainer>
-                    <button>Bouton</button>
-                </CardButtonsContainer>
+                <Flex direction={'column'} align={'center'} p={'2'}>
+                    <CardTitle>
+                        <Heading
+                            as={'h4'}
+                            weight={'medium'}
+                            mt={'4'}
+                            mb={'5'}
+                            ml={'5'}
+                            mr={'5'}
+                        >
+                            {name}
+                        </Heading>
+                    </CardTitle>
+                    <ImageContainer>
+                        <CardImage src={srcImg} alt={name} />
+                    </ImageContainer>
+                    <BeerCaract ibu={description.ibu} degree={description.degree} type={description.type} />
+                    <Box mt={'4'} mb={'2'}>
+                        <Button size={'3'}>
+                            <Text weight={'medium'}>
+                                {`+ d'infos`.toUpperCase()}
+                            </Text>
+                        </Button>
+                    </Box>
+                </Flex>
             </Card>
-        </CardContainer>
+        </CardContainer >
     )
 }
 //<CardDescription>{description}</CardDescription>

@@ -12,14 +12,19 @@ const CardsContainer = styled.ul`
     justify-content: center;
 `
 
-interface Description {
-    ibu: string
-    degree: string
-    type: string
-    ingredients: []
-    brewery: string
-    country: string
-    text: string
+interface Beer {
+    id: string
+    name: string
+    img: string
+    description: {
+        ibu: string
+        degree: string
+        type: string
+        ingredients: []
+        brewery: string
+        country: string
+        text: string
+    }
 }
 
 const CardList = ({ userId }: { userId: number }) => {
@@ -36,8 +41,8 @@ const CardList = ({ userId }: { userId: number }) => {
             {isError && ` Une erreur est survenue : ${error}`}
 
             <Grid columns={'2'} gap={'4'}>
-                {data && data.map((beer: { id: number, name: string; description: Description, img: string }) =>
-                    beer.id < 20 &&
+                {data && data.map((beer: Beer) =>
+                    Number(beer.id) < 20 &&
                     <CardBeer
                         key={beer.id}
                         id={beer.id}
