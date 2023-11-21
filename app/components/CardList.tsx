@@ -12,6 +12,16 @@ const CardsContainer = styled.ul`
     justify-content: center;
 `
 
+interface Description {
+    ibu: string
+    degree: string
+    type: string
+    ingredients: []
+    brewery: string
+    country: string
+    text: string
+}
+
 const CardList = ({ userId }: { userId: number }) => {
     const queryKey = ['beers']
     const { data, isLoading, isError, error } = useQuery({
@@ -26,13 +36,13 @@ const CardList = ({ userId }: { userId: number }) => {
             {isError && ` Une erreur est survenue : ${error}`}
 
             <Grid columns={'2'} gap={'4'}>
-                {data && data.map((beer: { id: number, name: string; descript: string, img: string }) =>
+                {data && data.map((beer: { id: number, name: string; description: Description, img: string }) =>
                     beer.id < 20 &&
                     <CardBeer
                         key={beer.id}
                         id={beer.id}
                         name={beer.name}
-                        description={beer.descript}
+                        description={beer.description}
                         image={beer.img}
                     />
                 )}

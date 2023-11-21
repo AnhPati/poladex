@@ -45,7 +45,17 @@ const CardButtonsContainer = styled.div`
     flex-direction: column;
 `
 
-export const CardBeer = ({ id, name, image, description }: { id: number, name: string, image: string, description: string }) => {
+interface Description {
+    ibu: string
+    degree: string
+    type: string
+    ingredients: []
+    brewery: string
+    country: string
+    text: string
+}
+
+export const CardBeer = ({ id, name, image, description }: { id: number, name: string, image: string, description: Description }) => {
     const srcImg = image === "" ? '/beers/poladex-logo.png' : image
 
     return (
@@ -68,7 +78,17 @@ export const CardBeer = ({ id, name, image, description }: { id: number, name: s
                 <ImageContainer>
                     <CardImage src={srcImg} alt={name} />
                 </ImageContainer>
-
+                <div>
+                    <div>
+                        {description.ibu} IBU
+                    </div>
+                    <div>
+                        {description.degree} °
+                    </div>
+                    <div>
+                        {description.type}
+                    </div>
+                </div>
                 <CardButtonsContainer>
                     <button>Bouton</button>
                 </CardButtonsContainer>
