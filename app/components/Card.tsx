@@ -1,8 +1,7 @@
 'use client'
 
 import styled from "styled-components"
-import { Box, Button, Card, Flex, Heading, Link, Text } from "@radix-ui/themes"
-import Image from 'next/image'
+import { Box, Button, Card, Flex, Link, Heading, Text } from "@radix-ui/themes"
 import { BeerCaract } from "./BeerCaract"
 
 const CardContainer = styled.li`
@@ -93,10 +92,12 @@ export const CardBeer = ({ id, name, image, description }: { id: string, name: s
                     </ImageContainer>
                     <BeerCaract ibu={description.ibu} degree={description.degree} type={description.type} />
                     <Box mt={'4'} mb={'2'}>
-                        <Button size={'3'}>
-                            <Text weight={'medium'}>
-                                {`+ d'infos`.toUpperCase()}
-                            </Text>
+                        <Button size={'3'} asChild>
+                            <Link href={'/beer'}>
+                                <Text weight={'medium'}>
+                                    {`+ d'infos`.toUpperCase()}
+                                </Text>
+                            </Link>
                         </Button>
                     </Box>
                 </Flex>
