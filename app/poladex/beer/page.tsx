@@ -1,5 +1,11 @@
-export const Beer = () => {
+import { BeerDetails } from "@/components/BeerDetails"
+
+const Beer = () => {
     return (
-        <div>Beer</div>
+        <div>
+            <BeerDetails />
+        </div>
     )
 }
+
+export default Beer
