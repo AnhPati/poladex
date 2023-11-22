@@ -93,7 +93,7 @@ export const CardBeer = ({ id, name, image, description }: { id: string, name: s
                     <BeerCaract ibu={description.ibu} degree={description.degree} type={description.type} />
                     <Box mt={'4'} mb={'2'}>
                         <Button size={'3'} asChild>
-                            <Link href={'/beer'}>
+                            <Link href={`/beer/[${id}]`}>
                                 <Text weight={'medium'}>
                                     {`+ d'infos`.toUpperCase()}
                                 </Text>
