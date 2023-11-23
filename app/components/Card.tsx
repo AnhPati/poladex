@@ -64,7 +64,7 @@ interface Beer {
     }
 }
 
-export const CardBeer = ({ id, name, image, description }: { id: string, name: string, image: string, description: Beer['description'] }) => {
+export const CardBeer = ({ id, name, image, description, handleBeerDetails }: { id: string, name: string, image: string, description: Beer['description'] }) => {
     const srcImg = image === "" ? '/beers/poladex-logo.png' : image
 
     return (
@@ -92,12 +92,10 @@ export const CardBeer = ({ id, name, image, description }: { id: string, name: s
                     </ImageContainer>
                     <BeerCaract ibu={description.ibu} degree={description.degree} type={description.type} />
                     <Box mt={'4'} mb={'2'}>
-                        <Button size={'3'} asChild>
-                            <Link href={`/beer`}>
-                                <Text weight={'medium'}>
-                                    {`+ d'infos`.toUpperCase()}
-                                </Text>
-                            </Link>
+                        <Button size={'3'} asChild onClick={handleBeerDetails} id={id}>
+                            <Text weight={'medium'}>
+                                {`+ d'infos`.toUpperCase()}
+                            </Text>
                         </Button>
                     </Box>
                 </Flex>
