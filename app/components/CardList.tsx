@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchBeers } from "../APIservices/fetchBeers"
 import { Grid } from "@radix-ui/themes"
 import { useState } from "react"
-import { BeerDetails } from "./BeerDetails"
+import Beer from "./Beer"
 
 const CardsContainer = styled.ul`
     padding: 20px;
@@ -30,8 +30,8 @@ interface Beer {
 }
 
 const CardList = ({ userId }: { userId: string | null }) => {
-    const [details, setDetails] = useState(false)
-    const [beerId, setBeerId] = useState('')
+    const [viewDetails, setViewDetails] = useState(false)
+    const [beerDetails, setBeerDetails] = useState({})
 
     const queryKey = ['beers']
     const { data, isLoading, isError, error } = useQuery({
@@ -42,13 +42,15 @@ const CardList = ({ userId }: { userId: string | null }) => {
 
     const handleBeerDetails = (e) => {
         const id = e.currentTarget.id
-        setDetails(true)
-        setBeerId(id)
+        const beerSelected = data[id]
+
+        setViewDetails(true)
+        setBeerDetails(beerSelected)
     }
 
     return (
         <>
-            {!details ? (
+            {!viewDetails ? (
                 <CardsContainer>
                     {isLoading && `En cours de chargement...`}
                     {isError && ` Une erreur est survenue : ${error}`}
@@ -68,7 +70,7 @@ const CardList = ({ userId }: { userId: string | null }) => {
                     </Grid>
                 </CardsContainer>
             ) : (
-                <BeerDetails beerId={beerId} />
+                <Beer beer={beerDetails} />
             )}
         </>
     )

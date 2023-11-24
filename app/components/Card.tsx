@@ -84,7 +84,7 @@ export const CardBeer = ({ id, name, image, description, handleBeerDetails }: { 
                             ml={'5'}
                             mr={'5'}
                         >
-                            {name}
+                            {name.toUpperCase()}
                         </Heading>
                     </CardTitle>
                     <ImageContainer>

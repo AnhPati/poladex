@@ -19,6 +19,17 @@ export const BeerCaract = ({ ibu, degree, type }: { ibu: string, degree: string,
     return (
         <BeerCaractContainer>
             <Flex justify={'between'} align={'end'} mb={'3'}>
+                <Image src={'/icons/beer-degree.svg'} alt={`Degrés d'alcool`} width={30} height={30} />
+                <Box grow={'1'} pr={'3'} pl={'3'}>
+                    <Separator size={'4'} color={'amber'} />
+                </Box>
+                <Box>
+                    <Text as={'p'} weight={'medium'} size={'4'}>
+                        {degree}°
+                    </Text>
+                </Box>
+            </Flex>
+            <Flex justify={'between'} align={'end'} mb={'3'}>
                 <Image src={'/icons/beer-hop.svg'} alt={`IBU`} width={30} height={30} />
                 <Box grow={'1'} pr={'3'} pl={'3'}>
                     <Separator size={'4'} color={'amber'} />
@@ -26,17 +37,6 @@ export const BeerCaract = ({ ibu, degree, type }: { ibu: string, degree: string,
                 <Box>
                     <Text as={'p'} weight={'medium'} size={'4'}>
                         {ibu} IBU
-                    </Text>
-                </Box>
-            </Flex>
-            <Flex justify={'between'} align={'end'} mb={'3'}>
-                <Image src={'/icons/beer-degree.svg'} alt={`Degrés d'alcool`} width={30} height={30} />
-                <Box grow={'1'} pr={'3'} pl={'3'}>
-                    <Separator size={'4'} color={'amber'} />
-                </Box>
-                <Box>
-                    <Text as={'p'} weight={'medium'} size={'4'}>
-                        {degree} °
                     </Text>
                 </Box>
             </Flex>
