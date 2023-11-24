@@ -29,7 +29,7 @@ interface Beer {
     }
 }
 
-const CardList = ({ userId }: { userId: string | null }) => {
+const CardList = ({ user }: { user?: {} }) => {
     const [viewDetails, setViewDetails] = useState(false)
     const [beerDetails, setBeerDetails] = useState({})
 
@@ -47,6 +47,8 @@ const CardList = ({ userId }: { userId: string | null }) => {
         setViewDetails(true)
         setBeerDetails(beerSelected)
     }
+
+    console.log(user)
 
     return (
         <>
@@ -70,7 +72,7 @@ const CardList = ({ userId }: { userId: string | null }) => {
                     </Grid>
                 </CardsContainer>
             ) : (
-                <Beer beer={beerDetails} />
+                <Beer beer={beerDetails} userBeers={user.beers} />
             )}
         </>
     )

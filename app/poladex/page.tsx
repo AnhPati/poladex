@@ -23,7 +23,7 @@ const Poladex = async () => {
 
     return (
         <Hydrate state={dehydratedState}>
-            <CardList userId={session?.user.id} />
+            <CardList user={session?.user} />
         </Hydrate>
     )
 }
