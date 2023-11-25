@@ -14,7 +14,7 @@ const CardsContainer = styled.ul`
     justify-content: center;
 `
 
-interface Beer {
+interface BeerProps {
     id: string
     name: string
     img: string
@@ -29,7 +29,7 @@ interface Beer {
     }
 }
 
-const CardList = ({ user }: { user?: {} }) => {
+const CardList = ({ user, drinked }: { user?: {}, drinked?: {} }) => {
     const [viewDetails, setViewDetails] = useState(false)
     const [beerDetails, setBeerDetails] = useState({})
 
@@ -40,6 +40,7 @@ const CardList = ({ user }: { user?: {} }) => {
         refetchOnWindowFocus: false
     })
 
+
     const handleBeerDetails = (e) => {
         const id = e.currentTarget.id
         const beerSelected = data[id]
@@ -49,6 +50,7 @@ const CardList = ({ user }: { user?: {} }) => {
     }
 
     console.log(user)
+    console.log(drinked)
 
     return (
         <>
@@ -58,7 +60,7 @@ const CardList = ({ user }: { user?: {} }) => {
                     {isError && ` Une erreur est survenue : ${error}`}
 
                     <Grid columns={'2'} gap={'4'}>
-                        {data && data.map((beer: Beer) =>
+                        {data && data.map((beer: BeerProps) =>
                             Number(beer.id) < 20 &&
                             <CardBeer
                                 key={beer.id}

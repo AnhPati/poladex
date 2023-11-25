@@ -56,17 +56,17 @@ model User {
   emailVerified DateTime?
   image         String?
 
-  beers    Beer[]    @relation("drinked")
+  beers    Beer[]
   accounts Account[]
   sessions Session[]
 }
 
 model Beer {
-  id           String   @unique
-  beerId       String
-  date         DateTime
+  id           String   @id @default(cuid())
+  drinkerId    String
+  date         DateTime @default(now())
   localisation String
   content      String?
 
-  drinked User @relation("drinked", fields: [beerId], references: [id], onDelete: Cascade)
+  drinker User @relation(fields: [drinkerId], references: [id], onDelete: Cascade)
 }
