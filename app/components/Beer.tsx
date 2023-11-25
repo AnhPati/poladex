@@ -15,8 +15,7 @@ interface Beer {
     }
 }
 
-const Beer = ({ beer, user }: { beer: Beer }) => {
-    console.log(user.beers)
+const Beer = ({ beer }: { beer: Beer }) => {
     return (
         <div>
             <BeerDetails beer={beer} />
