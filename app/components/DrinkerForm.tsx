@@ -1,29 +1,35 @@
 'use client'
 
-import { useState } from 'react';
+import { useRouter } from 'next/dist/client/components/navigation';
+import { useForm } from 'react-hook-form'
 import * as Form from '@radix-ui/react-form';
-import { Button, Flex, Text } from '@radix-ui/themes';
+import { Button, Flex, Link, Text } from '@radix-ui/themes';
 
-const DrinkerForm = ({ addBeer, userId, beerId }: { addBeer: any, userId: string, beerId: string }) => {
-    const [drinkerValues, setDrinkerValue] = useState({
-        drinkerId: userId,
-        beerId: beerId,
-        location: '',
-        content: ''
+interface DrinkedForm {
+    drinkerId: string
+    beerId: string
+    location: string
+    content: string
+}
+
+const DrinkerForm = ({ userId, beerId }: { userId: string, beerId: string }) => {
+    const router = useRouter()
+    const { register, handleSubmit } = useForm<DrinkedForm>({
+        defaultValues: {
+            drinkerId: userId,
+            beerId: beerId
+        }
     })
-
-    const handleChange = (e: any) => {
-        const newValues = { ...drinkerValues, [e.target.name]: e.target.value }
-        setDrinkerValue(newValues)
-    }
-
-    const saveDrinkerDetails = () => {
-        console.log(drinkerValues)
-        addBeer(drinkerValues)
-    }
+    console.log(register('location'))
 
     return (
-        <Form.Root>
+        <Form.Root onSubmit={handleSubmit(async (data) => {
+            await fetch('/api/beer', {
+                method: "POST",
+                body: JSON.stringify(data)
+            })
+            router.push('/poladex')
+        })}>
             <Form.Field name={'location'}>
                 <Flex direction={'column'}>
                     <Form.Label>Lieu de la dégustation :</Form.Label>
@@ -31,7 +37,7 @@ const DrinkerForm = ({ addBeer, userId, beerId }: { addBeer: any, userId: string
                         Veuillez renseigner le lieu de votre dégustation.
                     </Form.Message>
                     <Form.Control asChild>
-                        <input type={'text'} required onChange={handleChange} />
+                        <input type={'text'} required {...register('location')} />
                     </Form.Control>
                 </Flex>
             </Form.Field>
@@ -39,17 +45,18 @@ const DrinkerForm = ({ addBeer, userId, beerId }: { addBeer: any, userId: string
                 <Flex direction={'column'}>
                     <Form.Label>Commentaires :</Form.Label>
                     <Form.Control asChild>
-                        <textarea onChange={handleChange} />
+                        <textarea {...register('content')} />
                     </Form.Control>
                 </Flex>
             </Form.Field>
             <Form.Submit asChild>
-                <Button onSubmit={saveDrinkerDetails}>
-                    <Text>
-                        Sauver
-                    </Text>
+                <Button>
+                    <Link href={'/poladex'}>
+                        <Text>
+                            Sauver
+                        </Text>
+                    </Link>
                 </Button>
-
             </Form.Submit>
         </Form.Root>
     )
