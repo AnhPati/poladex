@@ -41,6 +41,7 @@ interface UserBeers {
 const CardList = ({ user, beers }: { user?: {}, beers: { id: string, drinkerId: string, beerId: string, date: Date, location: string, content: string | null }[] }) => {
     const [viewDetails, setViewDetails] = useState(false)
     const [beerDetails, setBeerDetails] = useState({})
+    const [drinkerDetails, setDrinkerDetails] = useState({})
 
     const queryKey = ['beers']
     const { data, isLoading, isError, error } = useQuery({
@@ -53,7 +54,9 @@ const CardList = ({ user, beers }: { user?: {}, beers: { id: string, drinkerId: 
     const handleBeerDetails = (e: Event) => {
         const id = e.currentTarget?.id
         const beerSelected = data[id]
+        const beerDrinked = beers[beers.findIndex(beer => beer.beerId === id)]
 
+        setDrinkerDetails(beerDrinked)
         setViewDetails(true)
         setBeerDetails(beerSelected)
     }
@@ -84,7 +87,7 @@ const CardList = ({ user, beers }: { user?: {}, beers: { id: string, drinkerId: 
                     </Grid>
                 </CardsContainer>
             ) : (
-                <Beer beer={beerDetails} userBeers={beers[beers.findIndex(beer => beer.beerId === beerDetails.id)]} />
+                <Beer beer={beerDetails} userBeerDetails={drinkerDetails} />
             )}
         </>
     )

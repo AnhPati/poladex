@@ -15,10 +15,10 @@ interface Beer {
     }
 }
 
-const Beer = ({ beer, userBeers }: { beer: Beer, userBeers: {} }) => {
+const Beer = ({ beer, userBeerDetails }: { beer: Beer, userBeerDetails: {} }) => {
     return (
         <div>
-            <BeerDetails beer={beer} userBeers={userBeers} />
+            <BeerDetails beer={beer} userBeerDetails={userBeerDetails} />
         </div>
     )
 }

@@ -58,7 +58,6 @@ const CardDescription = styled.div`
         border-radius: 5px;
         padding: 0.6em;
     }
-
 `
 interface Beer {
     id: string
@@ -75,7 +74,7 @@ interface Beer {
     }
 }
 
-export const BeerDetails = ({ beer }: { beer: Beer }) => {
+export const BeerDetails = ({ beer, userBeerDetails }: { beer: Beer, userBeerDetails: {} }) => {
     const [viewDrinkerDetails, setViewDrinkerDetails] = useState(false)
     const srcImg = beer.img === "" ? '/beers/poladex-logo.png' : beer.img
 
@@ -107,7 +106,7 @@ export const BeerDetails = ({ beer }: { beer: Beer }) => {
                     </ImageContainer>
                     {viewDrinkerDetails ? (
                         <>
-                            <BeerDrinkerDetails />
+                            <BeerDrinkerDetails userDetails={userBeerDetails} />
                         </>
                     ) : (
                         <>
