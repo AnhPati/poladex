@@ -7,14 +7,12 @@ const main = async () => {
     const beers = []
 
     for (let i = 0; i < 10; i++) {
-        const randomBeerIndex = faker.number.int({
-            min: 0,
-            max: 19
-        }).toString()
+        const beerIndex = i.toString()
 
         const beer = {
+            beerId: beerIndex,
             drinkerId: "clp5zrq4k0000r7bvbhpg37vy",
-            localisation: faker.lorem.sentence(1)
+            location: faker.location.city()
 
         } satisfies Prisma.BeerUncheckedCreateInput
 

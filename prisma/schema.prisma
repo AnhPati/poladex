@@ -62,11 +62,12 @@ model User {
 }
 
 model Beer {
-  id           String   @id @default(cuid())
-  drinkerId    String
-  date         DateTime @default(now())
-  localisation String
-  content      String?
+  id        String   @id @default(cuid())
+  drinkerId String
+  beerId    String   @unique
+  date      DateTime @default(now())
+  location  String
+  content   String?
 
   drinker User @relation(fields: [drinkerId], references: [id], onDelete: Cascade)
 }
