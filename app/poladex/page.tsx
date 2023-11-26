@@ -9,6 +9,7 @@ import { prisma } from "../lib/prisma"
 
 const Poladex = async () => {
     const session = await getAuthSession()
+    const userId = session?.user.id ? session.user.id : ''
 
     const queryClient = getQueryClient()
     const queryKey = ['beers']
@@ -18,11 +19,8 @@ const Poladex = async () => {
         queryFn: fetchBeers,
     })
 
-    const drinkedBeers = await prisma.beer.findMany({
-        select: {
-            id: true,
-            drinkerId: true
-        }
+    const drinkerBeers = await prisma.beer.findMany({
+        where: { drinkerId: userId }
     })
 
     const dehydratedState = dehydrate(queryClient, {
@@ -31,7 +29,7 @@ const Poladex = async () => {
 
     return (
         <Hydrate state={dehydratedState}>
-            <CardList user={session?.user} drinked={drinkedBeers} />
+            <CardList user={session?.user} beers={drinkerBeers} />
         </Hydrate>
     )
 }

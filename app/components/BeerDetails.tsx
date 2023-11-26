@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import styled from "styled-components"
 import { Box, Button, Card, Flex, Link, Heading, Text } from "@radix-ui/themes"
 import { BeerCaract } from "./BeerCaract"
+import BeerDrinkerDetails from './BeerDrinkerDetails'
 
 const CardContainer = styled.li`
     display: flex;
@@ -74,7 +76,12 @@ interface Beer {
 }
 
 export const BeerDetails = ({ beer }: { beer: Beer }) => {
+    const [viewDrinkerDetails, setViewDrinkerDetails] = useState(false)
     const srcImg = beer.img === "" ? '/beers/poladex-logo.png' : beer.img
+
+    const handleDrinkerDetails = () => {
+        setViewDrinkerDetails(!viewDrinkerDetails)
+    }
 
     return (
         <CardContainer id={beer.id}>
@@ -98,14 +105,23 @@ export const BeerDetails = ({ beer }: { beer: Beer }) => {
                     <ImageContainer>
                         <CardImage src={srcImg} alt={beer.name} />
                     </ImageContainer>
-                    <BeerCaract ibu={beer.description.ibu} degree={beer.description.degree} type={beer.description.type} />
-                    <CardDescription>
-                        <Text weight={'regular'} color={'amber'} as={'p'}>
-                            {beer.description.text}
-                        </Text>
-                    </CardDescription>
+                    {viewDrinkerDetails ? (
+                        <>
+                            <BeerDrinkerDetails />
+                        </>
+                    ) : (
+                        <>
+                            <BeerCaract ibu={beer.description.ibu} degree={beer.description.degree} type={beer.description.type} />
+                            <CardDescription>
+                                <Text weight={'regular'} color={'amber'} as={'p'}>
+                                    {beer.description.text}
+                                </Text>
+                            </CardDescription>
+                        </>
+                    )
+                    }
                     <Box mt={'4'} mb={'2'}>
-                        <Button size={'3'} asChild>
+                        <Button size={'3'} asChild onClick={handleDrinkerDetails}>
                             <Text weight={'medium'}>
                                 {`Infos de dégustation`.toUpperCase()}
                             </Text>

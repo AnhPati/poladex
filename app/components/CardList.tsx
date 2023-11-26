@@ -1,7 +1,7 @@
 'use client'
 
 import styled from "styled-components"
-import { CardBeer } from "./Card"
+import { CardBeer } from "./CardBeer"
 import { useQuery } from "@tanstack/react-query"
 import { fetchBeers } from "../APIservices/fetchBeers"
 import { Grid } from "@radix-ui/themes"
@@ -29,7 +29,16 @@ interface BeerProps {
     }
 }
 
-const CardList = ({ user, drinked }: { user?: {}, drinked?: {} }) => {
+interface UserBeers {
+    id: string
+    drinkerId: string
+    beerId: string
+    date: Date
+    location: string
+    content?: string
+}
+
+const CardList = ({ user, beers }: { user?: {}, beers: { id: string, drinkerId: string, beerId: string, date: Date, location: string, content: string | null }[] }) => {
     const [viewDetails, setViewDetails] = useState(false)
     const [beerDetails, setBeerDetails] = useState({})
 
@@ -41,16 +50,16 @@ const CardList = ({ user, drinked }: { user?: {}, drinked?: {} }) => {
     })
 
 
-    const handleBeerDetails = (e) => {
-        const id = e.currentTarget.id
+    const handleBeerDetails = (e: Event) => {
+        const id = e.currentTarget?.id
         const beerSelected = data[id]
 
         setViewDetails(true)
         setBeerDetails(beerSelected)
     }
 
-    console.log(user)
-    console.log(drinked)
+
+    const beersDrinkedIds = beers?.map(beer => beer.beerId)
 
     return (
         <>
@@ -65,6 +74,7 @@ const CardList = ({ user, drinked }: { user?: {}, drinked?: {} }) => {
                             <CardBeer
                                 key={beer.id}
                                 id={beer.id}
+                                isDrinked={beersDrinkedIds?.includes(beer.id)}
                                 name={beer.name}
                                 description={beer.description}
                                 image={beer.img}
@@ -74,7 +84,7 @@ const CardList = ({ user, drinked }: { user?: {}, drinked?: {} }) => {
                     </Grid>
                 </CardsContainer>
             ) : (
-                <Beer beer={beerDetails} userBeers={user.beers} />
+                <Beer beer={beerDetails} userBeers={beers[beers.findIndex(beer => beer.beerId === beerDetails.id)]} />
             )}
         </>
     )

@@ -13,6 +13,10 @@ const CardContainer = styled.li`
     > div::after {
         box-shadow: none;
     }
+
+    .no-card {
+        background: #000;
+    }
 `
 const CardTitle = styled.div`
         max-width: 100%;
@@ -64,12 +68,14 @@ interface Beer {
     }
 }
 
-export const CardBeer = ({ id, name, image, description, handleBeerDetails }: { id: string, name: string, image: string, description: Beer['description'] }) => {
+export const CardBeer = ({ id, name, image, description, handleBeerDetails, isDrinked }: { id: string, name: string, image: string, description: Beer['description'], handleBeerDetails: any, isDrinked: boolean | undefined }) => {
     const srcImg = image === "" ? '/beers/poladex-logo.png' : image
+    const beerVisibility = isDrinked ? '' : 'no-card'
 
     return (
         <CardContainer id={id}>
             <Card
+                className={isDrinked}
                 size={'2'}
                 style={{ maxWidth: 350 }}
                 variant={'surface'}
