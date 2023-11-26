@@ -16,8 +16,9 @@ interface Beer {
     }
 }
 
-const Beer = ({ beer, userBeerDetails }: { beer: Beer, userBeerDetails: {} }) => {
+const Beer = ({ beer, userBeerDetails, userId }: { beer: Beer, userBeerDetails: {}, userId: string }) => {
     const addBeer = async (drinkerData: any) => {
+        console.log('Add')
         await prisma.beer.create({
             data: {
                 beerId: drinkerData.beerId,
@@ -30,7 +31,7 @@ const Beer = ({ beer, userBeerDetails }: { beer: Beer, userBeerDetails: {} }) =>
 
     return (
         <div>
-            <BeerDetails beer={beer} userBeerDetails={userBeerDetails} addBeer={addBeer} />
+            <BeerDetails beer={beer} userBeerDetails={userBeerDetails} addBeer={addBeer} userId={userId} />
         </div>
     )
 }

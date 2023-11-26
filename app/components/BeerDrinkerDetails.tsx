@@ -25,7 +25,7 @@ const CardComment = styled.div`
     }
 `
 
-const BeerDrinkerDetails = ({ userDetails, handleEditMode, editMode, addBeer }: { userDetails: { id: string, beerId: string, userId: string, date: Date, location: string, comments: string | null }, handleEditMode: any, editMode: boolean, addBeer: any }) => {
+const BeerDrinkerDetails = ({ userDetails, handleEditMode, editMode, addBeer, userId, beerId }: { userDetails: { id: string, beerId: string, userId: string, date: Date, location: string, comments: string | null }, handleEditMode: any, editMode: boolean, addBeer: any, userId: string, beerId: string }) => {
 
     const dateFormat = (date: Date) => {
         const day = date.getDate()
@@ -42,7 +42,7 @@ const BeerDrinkerDetails = ({ userDetails, handleEditMode, editMode, addBeer }: 
     return (
         <Flex direction={'column'}>
             {editMode ? (
-                <DrinkerForm addBeer={addBeer} />
+                <DrinkerForm addBeer={addBeer} userId={userId} beerId={beerId} />
             ) : (
                 <DrinkerDetailsContainer>
                     <Text as={'p'} size={'6'} mt={'5'} mb={'5'}>

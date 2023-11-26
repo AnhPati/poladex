@@ -4,8 +4,13 @@ import { useState } from 'react';
 import * as Form from '@radix-ui/react-form';
 import { Button, Flex, Text } from '@radix-ui/themes';
 
-const DrinkerForm = ({ addBeer }: { addBeer: any }) => {
-    const [drinkerValues, setDrinkerValue] = useState({})
+const DrinkerForm = ({ addBeer, userId, beerId }: { addBeer: any, userId: string, beerId: string }) => {
+    const [drinkerValues, setDrinkerValue] = useState({
+        drinkerId: userId,
+        beerId: beerId,
+        location: '',
+        content: ''
+    })
 
     const handleChange = (e: any) => {
         const newValues = { ...drinkerValues, [e.target.name]: e.target.value }
@@ -13,11 +18,9 @@ const DrinkerForm = ({ addBeer }: { addBeer: any }) => {
     }
 
     const saveDrinkerDetails = () => {
+        console.log(drinkerValues)
         addBeer(drinkerValues)
     }
-
-    console.log(drinkerValues)
-
 
     return (
         <Form.Root>

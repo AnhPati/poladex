@@ -86,7 +86,7 @@ const CardList = ({ user, beers }: { user?: {}, beers: { id: string, drinkerId: 
                     </Grid>
                 </CardsContainer>
             ) : (
-                <Beer beer={beerDetails} userBeerDetails={drinkerDetails} />
+                <Beer beer={beerDetails} userBeerDetails={drinkerDetails} userId={user?.id} />
             )}
         </>
     )

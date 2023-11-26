@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { Box, Button, Card, Flex, Link, Heading, Text } from "@radix-ui/themes"
 import { BeerCaract } from "./BeerCaract"
 import BeerDrinkerDetails from './BeerDrinkerDetails'
+import DrinkerForm from './DrinkerForm'
 
 const CardContainer = styled.li`
     display: flex;
@@ -74,7 +75,7 @@ interface Beer {
     }
 }
 
-export const BeerDetails = ({ beer, userBeerDetails, addBeer }: { beer: Beer, userBeerDetails: {}, addBeer: any }) => {
+export const BeerDetails = ({ beer, userBeerDetails, addBeer, userId }: { beer: Beer, userBeerDetails: {}, addBeer: any, userId: string }) => {
     const [viewDrinkerDetails, setViewDrinkerDetails] = useState(false)
     const [editMode, setEditMode] = useState(false)
 
@@ -87,7 +88,8 @@ export const BeerDetails = ({ beer, userBeerDetails, addBeer }: { beer: Beer, us
     const handleEditMode = () => {
         setEditMode(!editMode)
     }
-    console.log(userBeerDetails)
+    console.log(userId)
+    console.log(beer.id)
     const isDrinked = userBeerDetails ? true : false
 
     return (
@@ -114,7 +116,11 @@ export const BeerDetails = ({ beer, userBeerDetails, addBeer }: { beer: Beer, us
                     </ImageContainer>
                     {viewDrinkerDetails && isDrinked ? (
                         <>
-                            <BeerDrinkerDetails userDetails={userBeerDetails} handleEditMode={handleEditMode} editMode={editMode} addBeer={addBeer} />
+                            <BeerDrinkerDetails userDetails={userBeerDetails} handleEditMode={handleEditMode} editMode={editMode} addBeer={addBeer} userId={userId} beerId={beer.id} />
+                        </>
+                    ) : editMode && !isDrinked ? (
+                        <>
+                            <DrinkerForm addBeer={addBeer} userId={userId} beerId={beer.id} />
                         </>
                     ) : (
                         <>
