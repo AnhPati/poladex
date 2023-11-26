@@ -61,7 +61,6 @@ const CardList = ({ user, beers }: { user?: {}, beers: { id: string, drinkerId: 
         setBeerDetails(beerSelected)
     }
 
-
     const beersDrinkedIds = beers?.map(beer => beer.beerId)
 
     return (

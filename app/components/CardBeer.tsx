@@ -75,7 +75,7 @@ export const CardBeer = ({ id, name, image, description, handleBeerDetails, isDr
     return (
         <CardContainer id={id}>
             <Card
-                className={isDrinked}
+                className={beerVisibility}
                 size={'2'}
                 style={{ maxWidth: 350 }}
                 variant={'surface'}

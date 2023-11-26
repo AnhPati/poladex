@@ -74,13 +74,21 @@ interface Beer {
     }
 }
 
-export const BeerDetails = ({ beer, userBeerDetails }: { beer: Beer, userBeerDetails: {} }) => {
+export const BeerDetails = ({ beer, userBeerDetails, addBeer }: { beer: Beer, userBeerDetails: {}, addBeer: any }) => {
     const [viewDrinkerDetails, setViewDrinkerDetails] = useState(false)
+    const [editMode, setEditMode] = useState(false)
+
     const srcImg = beer.img === "" ? '/beers/poladex-logo.png' : beer.img
 
     const handleDrinkerDetails = () => {
         setViewDrinkerDetails(!viewDrinkerDetails)
     }
+
+    const handleEditMode = () => {
+        setEditMode(!editMode)
+    }
+    console.log(userBeerDetails)
+    const isDrinked = userBeerDetails ? true : false
 
     return (
         <CardContainer id={beer.id}>
@@ -104,9 +112,9 @@ export const BeerDetails = ({ beer, userBeerDetails }: { beer: Beer, userBeerDet
                     <ImageContainer>
                         <CardImage src={srcImg} alt={beer.name} />
                     </ImageContainer>
-                    {viewDrinkerDetails ? (
+                    {viewDrinkerDetails && isDrinked ? (
                         <>
-                            <BeerDrinkerDetails userDetails={userBeerDetails} />
+                            <BeerDrinkerDetails userDetails={userBeerDetails} handleEditMode={handleEditMode} editMode={editMode} addBeer={addBeer} />
                         </>
                     ) : (
                         <>
@@ -119,13 +127,15 @@ export const BeerDetails = ({ beer, userBeerDetails }: { beer: Beer, userBeerDet
                         </>
                     )
                     }
-                    <Box mt={'4'} mb={'2'}>
-                        <Button size={'3'} asChild onClick={handleDrinkerDetails}>
-                            <Text weight={'medium'}>
-                                {`Infos de dégustation`.toUpperCase()}
-                            </Text>
-                        </Button>
-                    </Box>
+                    {!editMode && (
+                        <Box mt={'4'} mb={'2'}>
+                            <Button size={'3'} asChild onClick={isDrinked ? handleDrinkerDetails : handleEditMode}>
+                                <Text weight={'medium'}>
+                                    {isDrinked ? `Infos de dégustation`.toUpperCase() : `éditer`.toUpperCase()}
+                                </Text>
+                            </Button>
+                        </Box>
+                    )}
                 </Flex>
             </Card>
             <Button size={'3'} asChild mt={'3'}>

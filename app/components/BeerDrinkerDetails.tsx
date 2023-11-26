@@ -1,5 +1,13 @@
 import { Button, Flex, Heading, Text } from "@radix-ui/themes"
+import { useState } from "react"
 import styled from "styled-components"
+import DrinkerForm from "./DrinkerForm"
+
+const DrinkerDetailsContainer = styled.div`
+    .edit-mode {
+        display: none;
+    }
+`
 
 const CardComment = styled.div`
     width: 100%;
@@ -17,7 +25,8 @@ const CardComment = styled.div`
     }
 `
 
-const BeerDrinkerDetails = ({ userDetails }: { userDetails: { id: string, beerId: string, userId: string, date: Date, location: string, comments: string | null } }) => {
+const BeerDrinkerDetails = ({ userDetails, handleEditMode, editMode, addBeer }: { userDetails: { id: string, beerId: string, userId: string, date: Date, location: string, comments: string | null }, handleEditMode: any, editMode: boolean, addBeer: any }) => {
+
     const dateFormat = (date: Date) => {
         const day = date.getDate()
         const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
@@ -32,20 +41,27 @@ const BeerDrinkerDetails = ({ userDetails }: { userDetails: { id: string, beerId
 
     return (
         <Flex direction={'column'}>
-            <Text as={'p'} size={'6'} mt={'5'} mb={'5'}>
-                Tu as eu la chance de déguster cette bière le {date} à {userDetails.location}.
-            </Text>
-            <Heading as={'h3'} size={'6'} mb={'3'}>
-                Ce que tu en as pensé :
-            </Heading>
-            <CardComment>
-                <Text as={'p'}>
+            {editMode ? (
+                <DrinkerForm addBeer={addBeer} />
+            ) : (
+                <DrinkerDetailsContainer>
+                    <Text as={'p'} size={'6'} mt={'5'} mb={'5'}>
+                        Tu as eu la chance de déguster cette bière le {date} à {userDetails.location}.
+                    </Text>
+                    <Heading as={'h3'} size={'6'} mb={'3'}>
+                        Ce que tu en as pensé :
+                    </Heading>
+                    <CardComment>
+                        <Text as={'p'}>
 
-                </Text>
-            </CardComment>
-            <Button style={{ alignSelf: 'center' }} mt={'2'} size={'3'}>
-                {'éditer'.toUpperCase()}
-            </Button>
+                        </Text>
+                    </CardComment>
+                    <Button style={{ alignSelf: 'center' }} mt={'2'} size={'3'} onClick={handleEditMode}>
+                        {'éditer'.toUpperCase()}
+                    </Button>
+                </DrinkerDetailsContainer>
+            )
+            }
         </Flex>
     )
 }

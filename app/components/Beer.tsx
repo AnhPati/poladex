@@ -1,3 +1,4 @@
+import { prisma } from "../lib/prisma"
 import { BeerDetails } from "./BeerDetails"
 
 interface Beer {
@@ -16,9 +17,20 @@ interface Beer {
 }
 
 const Beer = ({ beer, userBeerDetails }: { beer: Beer, userBeerDetails: {} }) => {
+    const addBeer = async (drinkerData: any) => {
+        await prisma.beer.create({
+            data: {
+                beerId: drinkerData.beerId,
+                drinkerId: drinkerData.drinkerId,
+                location: drinkerData.location,
+                content: drinkerData.content
+            }
+        })
+    }
+
     return (
         <div>
-            <BeerDetails beer={beer} userBeerDetails={userBeerDetails} />
+            <BeerDetails beer={beer} userBeerDetails={userBeerDetails} addBeer={addBeer} />
         </div>
     )
 }
