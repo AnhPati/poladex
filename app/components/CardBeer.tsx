@@ -99,7 +99,7 @@ export const CardBeer = ({ id, name, image, description, handleBeerDetails, isDr
             >
                 {!isDrinked && (
                     <Box className={'unavailable'}>
-                        <Button size={'3'} asChild onClick={handleBeerDetails}>
+                        <Button size={'3'} asChild onClick={handleBeerDetails} id={id}>
                             <Text weight={'medium'}>
                                 {`Boire cette bière`.toUpperCase()}
                             </Text>
