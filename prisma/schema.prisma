@@ -64,7 +64,7 @@ model User {
 model Beer {
   id        String   @id @default(cuid())
   drinkerId String
-  beerId    String   @unique
+  beerId    String
   date      DateTime @default(now())
   location  String
   content   String?
