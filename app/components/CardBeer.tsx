@@ -14,8 +14,20 @@ const CardContainer = styled.li`
         box-shadow: none;
     }
 
-    .no-card {
-        background: #000;
+    .not-drinked{
+        position: relative;
+        
+        &::before {
+            content: "";
+            background: rgba(254, 253, 251, 0.8);
+            bottom: 0;
+            top: 0;
+            right: 0;
+            left: 0;
+            position: absolute;
+            z-index: 1;
+            border-radius: 8px;
+        }
     }
 `
 const CardTitle = styled.div`
@@ -70,7 +82,7 @@ interface Beer {
 
 export const CardBeer = ({ id, name, image, description, handleBeerDetails, isDrinked }: { id: string, name: string, image: string, description: Beer['description'], handleBeerDetails: any, isDrinked: boolean | undefined }) => {
     const srcImg = image === "" ? '/beers/poladex-logo.png' : image
-    const beerVisibility = isDrinked ? '' : 'no-card'
+    const beerVisibility = isDrinked ? '' : 'not-drinked'
 
     return (
         <CardContainer id={id}>
