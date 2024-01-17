@@ -75,7 +75,16 @@ interface Beer {
     }
 }
 
-export const BeerDetails = ({ beer, userBeerDetails, addBeer, userId }: { beer: Beer, userBeerDetails: {}, addBeer: any, userId: string }) => {
+interface UserBeerDetails {
+    id: string
+    beerId: string
+    userId: string
+    date: Date
+    location: string
+    comments: string | null
+}
+
+export const BeerDetails = ({ beer, userBeerDetails, addBeer, userId }: { beer: Beer, userBeerDetails: UserBeerDetails, addBeer: any, userId: string }) => {
     const [viewDrinkerDetails, setViewDrinkerDetails] = useState(false)
     const [editMode, setEditMode] = useState(false)
 
