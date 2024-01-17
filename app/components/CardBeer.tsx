@@ -6,6 +6,7 @@ import { BeerCaract } from "./BeerCaract"
 
 const CardContainer = styled.li`
     > div {
+        position: relative;
         background: var(--amber-a3);
         border-color:var(--amber-a6)!important; 
     }
@@ -14,21 +15,26 @@ const CardContainer = styled.li`
         box-shadow: none;
     }
 
-    .not-drinked{
-        position: relative;
-        
-        &::before {
-            content: "";
-            background: rgba(254, 253, 251, 0.8);
-            bottom: 0;
+    .not-drinked {
+        .unavailable {position: absolute;
             top: 0;
-            right: 0;
-            left: 0;
-            position: absolute;
+            bottom: 0;
+            background: rgba(254, 253, 251, 0.8);
             z-index: 1;
+            left: 0;
+            right: 0;
             border-radius: 8px;
+            border: 1px solid var(--amber-a6) !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-    }
+
+        .rt-Button {
+            position: relative;
+            z-index: 2;
+        }
+    } 
 `
 const CardTitle = styled.div`
         max-width: 100%;
@@ -82,16 +88,24 @@ interface Beer {
 
 export const CardBeer = ({ id, name, image, description, handleBeerDetails, isDrinked }: { id: string, name: string, image: string, description: Beer['description'], handleBeerDetails: any, isDrinked: boolean | undefined }) => {
     const srcImg = image === "" ? '/beers/poladex-logo.png' : image
-    const beerVisibility = isDrinked ? '' : 'not-drinked'
 
     return (
         <CardContainer id={id}>
             <Card
-                className={beerVisibility}
+                className={isDrinked ? '' : 'not-drinked'}
                 size={'2'}
                 style={{ maxWidth: 350 }}
                 variant={'surface'}
             >
+                {!isDrinked && (
+                    <Box className={'unavailable'}>
+                        <Button size={'3'} asChild onClick={handleBeerDetails}>
+                            <Text weight={'medium'}>
+                                {`Boire cette bière`.toUpperCase()}
+                            </Text>
+                        </Button>
+                    </Box>
+                )}
                 <Flex direction={'column'} align={'center'} p={'2'}>
                     <CardTitle>
                         <Heading
