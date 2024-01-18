@@ -31,17 +31,37 @@ interface BeerProps {
 
 interface UserBeers {
     id: string
-    drinkerId: string
+    userId: string
     beerId: string
     date: Date
     location: string
-    content?: string
+    comments: string | null
 }
 
-const CardList = ({ user, beers }: { user?: {}, beers: { id: string, drinkerId: string, beerId: string, date: Date, location: string, content: string | null }[] }) => {
+const CardList = ({ user, beers }: { user?: { id: string }, beers: { id: string, beerId: string, userId: string, date: Date, location: string, comments: string | null }[] }) => {
     const [viewDetails, setViewDetails] = useState(false)
-    const [beerDetails, setBeerDetails] = useState({})
-    const [drinkerDetails, setDrinkerDetails] = useState({})
+    const [beerDetails, setBeerDetails] = useState<BeerProps>({
+        id: "",
+        name: "",
+        img: "",
+        description: {
+            ibu: "",
+            degree: "",
+            type: "",
+            ingredients: [],
+            brewery: "",
+            country: "",
+            text: ""
+        }
+    })
+    const [drinkerDetails, setDrinkerDetails] = useState<UserBeers>({
+        id: "",
+        userId: "",
+        beerId: "",
+        date: new Date(),
+        location: "",
+        comments: ""
+    })
 
     const queryKey = ['beers']
     const { data, isLoading, isError, error } = useQuery({
@@ -52,9 +72,10 @@ const CardList = ({ user, beers }: { user?: {}, beers: { id: string, drinkerId: 
 
 
     const handleBeerDetails = (e: Event) => {
-        const id = e.currentTarget?.id
+        const target = e.currentTarget as HTMLButtonElement
+        const id = target?.id
         const beerSelected = data[id]
-        const beerDrinked = beers[beers.findIndex(beer => beer.beerId === id)]
+        const beerDrinked: UserBeers = beers[beers.findIndex(beer => beer.id === id)]
 
         setDrinkerDetails(beerDrinked)
         setViewDetails(true)
