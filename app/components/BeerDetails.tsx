@@ -129,7 +129,7 @@ export const BeerDetails = ({ beer, userBeerDetails, addBeer, userId }: { beer: 
                         </>
                     ) : editMode && !isDrinked ? (
                         <>
-                            <DrinkerForm addBeer={addBeer} userId={userId} beerId={beer.id} />
+                            <DrinkerForm userId={userId} beerId={beer.id} />
                         </>
                     ) : (
                         <>
