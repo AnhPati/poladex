@@ -2,7 +2,7 @@
 
 import { HydrationBoundary } from '@tanstack/react-query'
 
-export const Hydrate = (props) => {
+export const Hydrate = (props: any) => {
     return (
         <HydrationBoundary {...props} />
     )
