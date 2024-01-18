@@ -2,14 +2,8 @@
 
 import { HydrationBoundary } from '@tanstack/react-query'
 
-export const Hydrate: React.FC<HydrateProps> = (props) => {
+export const Hydrate = (props) => {
     return (
         <HydrationBoundary {...props} />
     )
-}
-
-import React from 'react';
-
-interface HydrateProps {
-
 }
