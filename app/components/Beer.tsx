@@ -24,7 +24,7 @@ interface UserBeerDetails {
     comments: string | null
 }
 
-const Beer = ({ beer, userBeerDetails, userId }: { beer: Beer, userBeerDetails: UserBeerDetails, userId: string }) => {
+const Beer = ({ beer, userBeerDetails, userId }: { beer: Beer, userBeerDetails: UserBeerDetails, userId: string | null }) => {
     const addBeer = async (drinkerData: any) => {
         await prisma.beer.create({
             data: {

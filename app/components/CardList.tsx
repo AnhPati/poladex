@@ -38,7 +38,7 @@ interface UserBeers {
     comments: string | null
 }
 
-const CardList = ({ user, beers }: { user?: { id: string }, beers: { id: string, drinkerId: string, beerId: string, date: Date, location: string, content: string | null }[] }) => {
+const CardList = ({ user, beers }: { user?: { id: string }, beers: { id: string, userId: string, beerId: string, date: Date, location: string, comments: string | null }[] }) => {
     const [viewDetails, setViewDetails] = useState(false)
     const [beerDetails, setBeerDetails] = useState<BeerProps>({
         id: "",
