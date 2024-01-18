@@ -77,14 +77,14 @@ interface Beer {
 
 interface UserBeerDetails {
     id: string
+    drinkerId: string
     beerId: string
-    userId: string
     date: Date
     location: string
-    comments: string | null
+    content: string | null
 }
 
-export const BeerDetails = ({ beer, userBeerDetails, addBeer, userId }: { beer: Beer, userBeerDetails: UserBeerDetails, addBeer: any, userId: string }) => {
+export const BeerDetails = ({ beer, userBeerDetails, addBeer, userId }: { beer: Beer, userBeerDetails: UserBeerDetails, addBeer: any, userId: string | null | undefined }) => {
     const [viewDrinkerDetails, setViewDrinkerDetails] = useState(false)
     const [editMode, setEditMode] = useState(false)
 

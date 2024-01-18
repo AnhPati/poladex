@@ -17,14 +17,14 @@ interface Beer {
 }
 interface UserBeerDetails {
     id: string
+    drinkerId: string
     beerId: string
-    userId: string
     date: Date
     location: string
-    comments: string | null
+    content: string | null
 }
 
-const Beer = ({ beer, userBeerDetails, userId }: { beer: Beer, userBeerDetails: UserBeerDetails, userId: string | null }) => {
+const Beer = ({ beer, userBeerDetails, userId }: { beer: Beer, userBeerDetails: UserBeerDetails, userId: string | null | undefined }) => {
     const addBeer = async (drinkerData: any) => {
         await prisma.beer.create({
             data: {

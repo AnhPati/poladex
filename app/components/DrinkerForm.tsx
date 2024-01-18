@@ -6,13 +6,13 @@ import * as Form from '@radix-ui/react-form';
 import { Button, Flex, Link, Text } from '@radix-ui/themes';
 
 interface DrinkedForm {
-    drinkerId: string
+    drinkerId: string | null
     beerId: string
     location: string
     content: string
 }
 
-const DrinkerForm = ({ userId, beerId }: { userId: string, beerId: string }) => {
+const DrinkerForm = ({ userId, beerId }: { userId: string | null | undefined, beerId: string }) => {
     const router = useRouter()
     const { register, handleSubmit } = useForm<DrinkedForm>({
         defaultValues: {

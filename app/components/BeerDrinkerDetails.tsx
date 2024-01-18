@@ -25,7 +25,7 @@ const CardComment = styled.div`
     }
 `
 
-const BeerDrinkerDetails = ({ userDetails, handleEditMode, editMode, addBeer, userId, beerId }: { userDetails: { id: string, beerId: string, userId: string, date: Date, location: string, comments: string | null }, handleEditMode: any, editMode: boolean, addBeer: any, userId: string, beerId: string }) => {
+const BeerDrinkerDetails = ({ userDetails, handleEditMode, editMode, addBeer, userId, beerId }: { userDetails: { id: string, drinkerId: string, beerId: string, date: Date, location: string, content: string | null }, handleEditMode: any, editMode: boolean, addBeer: any, userId: string | null | undefined, beerId: string }) => {
 
     const dateFormat = (date: Date) => {
         const day = date.getDate()

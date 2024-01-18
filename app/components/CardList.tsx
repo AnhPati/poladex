@@ -31,14 +31,14 @@ interface BeerProps {
 
 interface UserBeers {
     id: string
-    userId: string
+    drinkerId: string
     beerId: string
     date: Date
     location: string
-    comments: string | null
+    content: string | null
 }
 
-const CardList = ({ user, beers }: { user?: { id: string }, beers: { id: string, userId: string, beerId: string, date: Date, location: string, comments: string | null }[] }) => {
+const CardList = ({ user, beers }: { user: ({ name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; } & { id?: string | undefined; beers: []; }) | undefined, beers: { id: string; drinkerId: string; beerId: string; date: Date; location: string; content: string | null; }[] }) => {
     const [viewDetails, setViewDetails] = useState(false)
     const [beerDetails, setBeerDetails] = useState<BeerProps>({
         id: "",
@@ -56,11 +56,11 @@ const CardList = ({ user, beers }: { user?: { id: string }, beers: { id: string,
     })
     const [drinkerDetails, setDrinkerDetails] = useState<UserBeers>({
         id: "",
-        userId: "",
+        drinkerId: "",
         beerId: "",
         date: new Date(),
         location: "",
-        comments: ""
+        content: ""
     })
 
     const queryKey = ['beers']
