@@ -42,7 +42,7 @@ const BeerDrinkerDetails = ({ userDetails, handleEditMode, editMode, addBeer, us
     return (
         <Flex direction={'column'}>
             {editMode ? (
-                <DrinkerForm addBeer={addBeer} userId={userId} beerId={beerId} />
+                <DrinkerForm userId={userId} beerId={beerId} />
             ) : (
                 <DrinkerDetailsContainer>
                     <Text as={'p'} size={'6'} mt={'5'} mb={'5'}>
