@@ -3,7 +3,7 @@
 import styled from "styled-components"
 import { CardBeer } from "./CardBeer"
 import { useQuery } from "@tanstack/react-query"
-import { fetchBeers } from "../APIservices/fetchBeers"
+import { fetchBeers } from "../APIservices/fetchLocalBeers"
 import { Grid } from "@radix-ui/themes"
 import { useState } from "react"
 import Beer from "./Beer"

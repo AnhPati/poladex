@@ -1,4 +1,4 @@
-import { fetchBeers } from "@/APIservices/fetchBeers"
+import { fetchBeers } from "@/APIservices/fetchLocalBeers"
 import CardList from "@/components/CardList"
 import getQueryClient from "@/APIservices/getQueryClient"
 import { dehydrate } from "@tanstack/react-query"
