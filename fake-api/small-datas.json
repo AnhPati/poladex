@@ -1,0 +1,328 @@
+{
+    "beers": [
+        {
+            "id": "0",
+            "name": "Hocus Pocus Magic Trap",
+            "img": "/beers/hocus_pocus.jpg",
+            "description": {
+                "ibu": "25",
+                "degree": "8.5",
+                "type": "Belgian Strong Ale",
+                "ingredients": [],
+                "brewery": "Hocus Pocus",
+                "country": "Brésil",
+                "text": "Magic Trap est une Golden Strong Ale belge dorée et cristalline, réinventée pour être plus fruitée et plus forte que les autres du même style. Il utilise une levure trappiste à des températures qui maximisent l'arôme intense de banane estérifiée, ce qui finit par masquer sa forte teneur en alcool. Ainsi, elle donne l’impression d’être une bière très légère, tout en cachant une force que l’on ne retrouve que chez les Belges les plus lourdes."
+            }
+        },
+        {
+            "id": "1",
+            "name": "Grimbergen Blonde",
+            "img": "/beers/grimbergen_blonde.jpg",
+            "description": {
+                "ibu": "22",
+                "degree": "6.7",
+                "type": "Bière d'abbaye",
+                "ingredients": [
+                    "eau",
+                    "malt d’orge",
+                    "sirop de glucose",
+                    "malt de blé",
+                    "caramel aromatique",
+                    "extrait de houblon"
+                ],
+                "brewery": "Grimbergen",
+                "country": "Belgique",
+                "text": "Une bière blonde onctueuse aux arômes de fruits jaunes mûrs, une note épicée de clou de girofle et une mousse dense de couleur crème.\nGrimbergen Blonde est dominée par des fruits mûrs, des épices et du miel au nez se mêlant à des saveurs douces et amères dans le corps. Les associations avec l'ananas, la réglisse, la poire et le clou de girofle viennent immédiatement à l'esprit. Parfaitement équilibré, extrêmement persistant et exceptionnellement complexe."
+            }
+        },
+        {
+            "id": "2",
+            "name": "Widdershins Oak Aged Barleywine Ale",
+            "img": "/beers/widdershins_barleywine.jpg",
+            "description": {
+                "ibu": "65",
+                "degree": "10.7",
+                "type": "Vin d'orge",
+                "ingredients": [],
+                "brewery": "Left Hand Brewing Company",
+                "country": "Angleterre",
+                "text": "Des notes florales et fruitées d'orange et d'abricot reposent sur un fond de chêne, guirlande d'arômes terreux de houblon et de la sinistre présence de malt tourbé. Notre réponse à la baisse de la lumière du jour et aux températures glaciales peut être dégustée immédiatement ou conservée dans votre cave pour une journée enneigée."
+            }
+        },
+        {
+            "id": "3",
+            "name": "Lucifer",
+            "img": "/beers/lucifer.jpg",
+            "description": {
+                "ibu": "24",
+                "degree": "8",
+                "type": "Belgian Ale",
+                "ingredients": [
+                    "malt d’orge",
+                    "sucre",
+                    "levure ",
+                    "houblon"
+                ],
+                "brewery": "Brasserie Het Anker",
+                "country": "Belgique",
+                "text": "Lucifer est une bière blonde forte avec une belle couleur dorée et une mousse blanche et crémeuse. Laissez-vous séduire par sa longueur en bouche provenant de son arôme fruité, de ses subtiles touches houblonnées et de sa douce amertume."
+            }
+        },
+        {
+            "id": "4",
+            "name": "Bitter",
+            "img": "/beers/bitter.jpg",
+            "description": {
+                "ibu": "60",
+                "degree": "6",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "5",
+            "name": "Winter Warmer",
+            "img": "/beers/winter_warmer.jpg",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "6",
+            "name": "Winter Welcome 2007-2008",
+            "img": "/beers/winter_welcome-2007-2008.jpg",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "7",
+            "name": "Oatmeal Stout",
+            "img": "/beers/oatmeal_stout.jpg",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "8",
+            "name": "Espresso Porter",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "9",
+            "name": "Chocolate Stout",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "10",
+            "name": "Hitachino Nest Real Ginger Brew",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "11",
+            "name": "JuJu Ginger",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "12",
+            "name": "The Kidd Lager",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "13",
+            "name": "Imperial Stout",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "14",
+            "name": "Oak-Aged Belgian Tripel",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "15",
+            "name": "Ultrablonde",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "16",
+            "name": "Wiesen Edel Weisse",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "17",
+            "name": "Old Foghorn 2001",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "18",
+            "name": "Framboise",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        },
+        {
+            "id": "19",
+            "name": "Cow Palace Scotch Ale 1998",
+            "img": "",
+            "description": {
+                "ibu": "10",
+                "degree": "7.2",
+                "type": "ici",
+                "ingredients": [
+                    "malt"
+                ],
+                "brewery": "Tata",
+                "country": "kabas",
+                "text": "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.\n\nIts malty sweetness finishes tart and crisp and is best apprediated with a wedge of orange."
+            }
+        }
+    ]
+}

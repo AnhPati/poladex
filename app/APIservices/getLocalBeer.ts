@@ -1,4 +1,4 @@
-import beersData from './../../fake-api/datas.json';
+import beersData from './../../fake-api/small-datas.json';
 
 export const getBeer = async (beerId: string) => {
     const errorServer = 'Le serveur est actuellement inaccessible.';
