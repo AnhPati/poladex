@@ -61,18 +61,18 @@ const CardDescription = styled.div`
     }
 `
 interface Beer {
-    id: string
-    name: string
-    img: string
-    description: {
-        ibu: string
-        degree: string
-        type: string
-        ingredients: []
-        brewery: string
-        country: string
-        text: string
-    }
+    id: string;
+    name: string;  // Mettez à jour ici
+    img: string | null;
+    description: null | string | {
+        ibu: string | null;
+        degree: string | null;
+        type: string | null;
+        ingredients: Array<string> | [] | null;
+        brewery: string | null;
+        country: string | null;
+        text: string | null;
+    };
 }
 
 interface UserBeerDetails {
@@ -97,8 +97,7 @@ export const BeerDetails = ({ beer, userBeerDetails, addBeer, userId }: { beer: 
     const handleEditMode = () => {
         setEditMode(!editMode)
     }
-    console.log(userId)
-    console.log(beer.id)
+
     const isDrinked = userBeerDetails ? true : false
 
     return (
@@ -121,7 +120,7 @@ export const BeerDetails = ({ beer, userBeerDetails, addBeer, userId }: { beer: 
                         </Heading>
                     </CardTitle>
                     <ImageContainer>
-                        <CardImage src={srcImg} alt={beer.name} />
+                        <CardImage src={srcImg ? srcImg : ''} alt={beer.name} />
                     </ImageContainer>
                     {viewDrinkerDetails && isDrinked ? (
                         <>
@@ -133,10 +132,10 @@ export const BeerDetails = ({ beer, userBeerDetails, addBeer, userId }: { beer: 
                         </>
                     ) : (
                         <>
-                            <BeerCaract ibu={beer.description.ibu} degree={beer.description.degree} type={beer.description.type} />
+                            <BeerCaract ibu={beer.description && typeof beer.description !== 'string' ? beer.description.ibu : ''} degree={beer.description && typeof beer.description !== 'string' ? beer.description.degree : ''} type={beer.description && typeof beer.description !== 'string' ? beer.description.type : ''} />
                             <CardDescription>
                                 <Text weight={'regular'} color={'amber'} as={'p'}>
-                                    {beer.description.text}
+                                    {beer.description && typeof beer.description !== 'string' ? beer.description.text : ''}
                                 </Text>
                             </CardDescription>
                         </>

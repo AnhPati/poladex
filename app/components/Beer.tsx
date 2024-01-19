@@ -2,18 +2,18 @@ import { prisma } from "../lib/prisma"
 import { BeerDetails } from "./BeerDetails"
 
 interface Beer {
-    id: string
-    name: string
-    img: string
-    description: {
-        ibu: string
-        degree: string
-        type: string
-        ingredients: []
-        brewery: string
-        country: string
-        text: string
-    }
+    id: string;
+    name: string;  // Mettez à jour ici
+    img: string | null;
+    description: null | string | {
+        ibu: string | null;
+        degree: string | null;
+        type: string | null;
+        ingredients: Array<string> | [] | null;
+        brewery: string | null;
+        country: string | null;
+        text: string | null;
+    };
 }
 interface UserBeerDetails {
     id: string

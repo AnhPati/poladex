@@ -15,7 +15,7 @@ const BeerCaractContainer = styled.div`
     }
 `
 
-export const BeerCaract = ({ ibu, degree, type }: { ibu: string, degree: string, type: string }) => {
+export const BeerCaract = ({ ibu, degree, type }: { ibu: string | null, degree: string | null, type: string | null }) => {
     return (
         <BeerCaractContainer>
             <Flex justify={'between'} align={'end'} mb={'3'}>

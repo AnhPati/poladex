@@ -15,18 +15,18 @@ const CardsContainer = styled.ul`
 `
 
 interface BeerProps {
-    id: string
-    name: string
-    img: string
-    description: {
-        ibu: string
-        degree: string
-        type: string
-        ingredients: []
-        brewery: string
-        country: string
-        text: string
-    }
+    id: string;
+    name: string;  // Mettez à jour ici
+    img: string | null;
+    description: null | string | {
+        ibu: string | null;
+        degree: string | null;
+        type: string | null;
+        ingredients: Array<string> | [] | null;
+        brewery: string | null;
+        country: string | null;
+        text: string | null;
+    };
 }
 
 interface UserBeers {
@@ -53,7 +53,7 @@ const CardList = ({ user, beers }: { user: ({ name?: string | null | undefined; 
             country: "",
             text: ""
         }
-    })
+    });
     const [drinkerDetails, setDrinkerDetails] = useState<UserBeers>({
         id: "",
         drinkerId: "",
@@ -70,16 +70,26 @@ const CardList = ({ user, beers }: { user: ({ name?: string | null | undefined; 
         refetchOnWindowFocus: false
     })
 
-
     const handleBeerDetails = (e: Event) => {
         const target = e.currentTarget as HTMLButtonElement
         const id = target?.id
-        const beerSelected = data[id]
-        const beerDrinked: UserBeers = beers[beers.findIndex(beer => beer.id === id)]
 
-        setDrinkerDetails(beerDrinked)
-        setViewDetails(true)
-        setBeerDetails(beerSelected)
+        if (data) {
+            const beerSelected = data.find(beer => beer.id === id)
+
+            // Assurez-vous que la bière sélectionnée existe avant de la traiter
+            if (beerSelected) {
+                const beerDrinked: UserBeers = beers[beers.findIndex(beer => beer.id === id)]
+                console.log(typeof beerSelected.name)
+                setDrinkerDetails(beerDrinked)
+                setViewDetails(true)
+                setBeerDetails(beerSelected)
+            } else {
+                console.error(`Aucune bière trouvée avec l'ID ${id}`);
+            }
+        } else {
+            console.error("Les données ne sont pas encore chargées");
+        }
     }
 
     const beersDrinkedIds = beers?.map(beer => beer.beerId)
@@ -99,8 +109,8 @@ const CardList = ({ user, beers }: { user: ({ name?: string | null | undefined; 
                                 id={beer.id}
                                 isDrinked={beersDrinkedIds?.includes(beer.id)}
                                 name={beer.name}
-                                description={beer.description}
-                                image={beer.img}
+                                description={beer.description && beer.description}
+                                image={beer.img && beer.img}
                                 handleBeerDetails={handleBeerDetails}
                             />
                         )}

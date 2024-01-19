@@ -72,21 +72,21 @@ const CardDescription = styled.p`
 `
 
 interface Beer {
-    id: string
-    name: string
-    img: string
-    description: {
-        ibu: string
-        degree: string
-        type: string
-        ingredients: []
-        brewery: string
-        country: string
-        text: string
-    }
+    id: string;
+    name: string;  // Mettez à jour ici
+    img: string | null;
+    description: null | string | {
+        ibu: string | null;
+        degree: string | null;
+        type: string | null;
+        ingredients: Array<string> | [] | null;
+        brewery: string | null;
+        country: string | null;
+        text: string | null;
+    };
 }
 
-export const CardBeer = ({ id, name, image, description, handleBeerDetails, isDrinked }: { id: string, name: string, image: string, description: Beer['description'], handleBeerDetails: any, isDrinked: boolean | undefined }) => {
+export const CardBeer = ({ id, name, image, description, handleBeerDetails, isDrinked }: { id: string, name: string, image: Beer['img'], description: Beer['description'], handleBeerDetails: any, isDrinked: boolean | undefined }) => {
     const srcImg = image === "" ? '/beers/poladex-logo.png' : image
 
     return (
@@ -120,9 +120,9 @@ export const CardBeer = ({ id, name, image, description, handleBeerDetails, isDr
                         </Heading>
                     </CardTitle>
                     <ImageContainer>
-                        <CardImage src={srcImg} alt={name} />
+                        <CardImage src={srcImg ? srcImg : ''} alt={name} />
                     </ImageContainer>
-                    <BeerCaract ibu={description.ibu} degree={description.degree} type={description.type} />
+                    <BeerCaract ibu={description && typeof description !== 'string' ? description.ibu : ''} degree={description && typeof description !== 'string' ? description.degree : ''} type={description && typeof description !== 'string' ? description.type : ''} />
                     <Box mt={'4'} mb={'2'}>
                         <Button size={'3'} asChild onClick={handleBeerDetails} id={id}>
                             <Text weight={'medium'}>
