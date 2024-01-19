@@ -1,4 +1,5 @@
 import GoogleProvider from "next-auth/providers/google";
+import GithubProvider from "next-auth/providers/github";
 import Email from "next-auth/providers/email";
 import { env } from "./env";
 import { AuthOptions, getServerSession } from 'next-auth'
@@ -12,6 +13,10 @@ export const authOptions: AuthOptions = {
         GoogleProvider({
             clientId: env.GOOGLE_ID,
             clientSecret: env.GOOGLE_SECRET
+        }),
+        GithubProvider({
+            clientId: env.GITHUB_ID,
+            clientSecret: env.GITHUB_SECRET
         }),
         Email({
             from: process.env.EMAIL_FROM,
